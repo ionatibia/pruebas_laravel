@@ -12,4 +12,10 @@ class Service extends Model
     /* Si hay problemas de automatización por falta de 
     convención de nombres de ficheros 
     protected $table = 'services'; */
+
+    protected $fillable = [
+        'title',
+        'description',
+        'done',
+    ];
 }

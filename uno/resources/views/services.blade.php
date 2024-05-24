@@ -8,18 +8,24 @@
 @section('content')
     <h1>Services</h1>
     <div class="services">
-        @for ($i = 1; $i < 15; $i++)
-            @component('_components.card')
-                @slot('title')
-                    Service {{ $i }}
-                @endslot
-                @slot('content')
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut soluta optio cupiditate debitis excepturi delectus?
-                    Nulla
-                    minima distinctio ex tenetur ducimus molestiae, voluptatem consequatur reprehenderit dicta iste, hic itaque
-                    perspiciatis?
-                @endslot
-            @endcomponent
-        @endfor
+        @forelse ($services as $service)
+            @foreach ($services as $service)
+                @component('_components.card')
+                    @slot('title')
+                        {{ $service->title }}
+                    @endslot
+                    @slot('content')
+                        {{ $service->description }}
+                    @endslot
+                @endcomponent
+            @endforeach
+        @empty
+            <h3>No hay servicios para mostrar</h3>
+            <style>
+                h1 {
+                    color: rgb(250, 7, 7);
+                }
+            </style>
+        @endforelse
     </div>
 @endsection

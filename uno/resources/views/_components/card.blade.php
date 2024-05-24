@@ -1,9 +1,8 @@
 <div class="card">
-    <h3>{{ $title }}</h3>
+    <h3 class="{{ (string) $done ? 'titleGreen' : 'titleRed' }}">{{ $title }}</h3>
     <img src="{{ asset('assets/img/1.jpg') }}" alt="">
     <p>{{ $content }}</p>
 </div>
-
 <style>
     .card {
         width: 200px;
@@ -16,5 +15,13 @@
 
     .card img {
         width: 200px
+    }
+
+    .titleGreen {
+        color: green;
+    }
+
+    .titleRed {
+        color: red;
     }
 </style>

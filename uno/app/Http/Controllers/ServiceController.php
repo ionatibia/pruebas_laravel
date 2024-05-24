@@ -18,13 +18,13 @@ class ServiceController extends Controller
         $service = new Service;
         $service->title = 'Servicio 1';
         $service->description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorem tenetur minus, maxime ullam doloremque cupiditate eum? Iusto, necessitatibus! Veritatis, itaque nemo. Accusamus ex eligendi ea at labore voluptatem aperiam.';
-        $service->done = false;
+        $service->done = (bool)0;
         $service->save();
 
         Service::create([
             "title" => "Servicio 2",
             "description" => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorem tenetur minus, maxime ullam doloremque cupiditate eum? Iusto, necessitatibus! Veritatis, itaque nemo. Accusamus ex eligendi ea at labore voluptatem aperiam.',
-            "done" => true
+            "done" => (bool)1
         ]);
 
         return redirect()->route('services');

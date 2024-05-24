@@ -9,16 +9,17 @@
     <h1>Services</h1>
     <div class="services">
         @forelse ($services as $service)
-            @foreach ($services as $service)
-                @component('_components.card')
-                    @slot('title')
-                        {{ $service->title }}
-                    @endslot
-                    @slot('content')
-                        {{ $service->description }}
-                    @endslot
-                @endcomponent
-            @endforeach
+            @component('_components.card')
+                @slot('title')
+                    {{ $service->title }}
+                @endslot
+                @slot('content')
+                    {{ $service->description }}
+                @endslot
+                @slot('done')
+                    {{ $service->done }}
+                @endslot
+            @endcomponent
         @empty
             <h3>No hay servicios para mostrar</h3>
             <style>

@@ -9,7 +9,9 @@ class ServiceController extends Controller
 {
     public function showServices()
     {
-        $services = Service::all();
+        /* $services = Service::all(); */
+        /* $services = Service::where('title', 'Servicio 1')->get(); */
+        $services = Service::where('done', 1)->orWhere('title', 'Servicio 1')->get();
         return view('services', compact('services'));
     }
 

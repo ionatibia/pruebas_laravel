@@ -5,6 +5,7 @@
             <li><a href="{{ route('about') }}">About</a></li>
             <li><a href="{{ route('services') }}">Services</a></li>
             <li><a href="{{ route('contact') }}">Contact</a></li>
+            <li><a href="{{ route('note.index') }}">Notas</a></li>
         </ul>
     </nav>
 </header>
@@ -23,7 +24,7 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        gap: 20rem;
+        gap: 10rem;
         padding-inline-start: 0px;
     }
 

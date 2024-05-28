@@ -4,7 +4,7 @@
             <li><a href="{{ route('index') }}">Home</a></li>
             <li><a href="{{ route('about') }}">About</a></li>
             <li><a href="{{ route('services') }}">Services</a></li>
-            <li><a href="{{ route('contact') }}">Contact</a></li>
+            <li><a href="{{ route('post.index') }}">Posts</a></li>
             <li><a href="{{ route('note.index') }}">Notas</a></li>
         </ul>
     </nav>

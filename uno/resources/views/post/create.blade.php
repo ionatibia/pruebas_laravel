@@ -8,7 +8,7 @@
             @endforeach
         </ul>
     @endif
-    <form action="{{ route('note.store') }}" method="POST" class="form">
+    <form action="{{ route('post.store') }}" method="POST" class="form">
         @csrf
         <label>Titulo:</label>
         <input type="text" name="title" class="@error('title') danger @enderror"> <br>
@@ -16,15 +16,15 @@
             <p style="color: red">{{ $message }}</p>
         @enderror
 
-        <label>Descripción</label>
-        <input type="text" name="description"> <br>
-        @error('description')
+        <label>Contenido</label>
+        <input type="text" name="content"> <br>
+        @error('content')
             <p style="color: red">{{ $message }}</p>
         @enderror
 
         <input type="submit" value="Crear">
     </form>
-    <a href="{{ route('note.index') }}">Volver</a>
+    <a href="{{ route('post.index') }}">Volver</a>
 @endsection
 <style>
     .form {

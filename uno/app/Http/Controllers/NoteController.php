@@ -24,7 +24,7 @@ class NoteController extends Controller
     public function store(NoteRequest $request): RedirectResponse
     {
         Note::create($request->all());
-        return redirect(route('note.index'));
+        return redirect(route('note.index'))->with('success', 'Note Created!!!');
     }
 
     public function edit(Note $note): View
@@ -35,7 +35,7 @@ class NoteController extends Controller
     public function update(NoteRequest $request, Note $note): RedirectResponse
     {
         $note->update($request->all());
-        return redirect()->route('note.index');
+        return redirect()->route('note.index')->with('success', 'Note Updated!!!');
     }
 
     public function show(Note $note): View
@@ -46,6 +46,6 @@ class NoteController extends Controller
     public function destroy(Note $note): RedirectResponse
     {
         $note->delete();
-        return redirect()->route('note.index');
+        return redirect()->route('note.index')->with('danger', 'Note Destroyed!!!');
     }
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ThingController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\PostController;
 
 /* Route::get('/', function () {
     return view('welcome');
@@ -23,3 +24,5 @@ Route::get('/note/edit/{note}', [NoteController::class, 'edit'])->name('note.edi
 Route::put('/note/update/{note}', [NoteController::class, 'update'])->name('note.update');
 Route::get('/note/show/{note}', [NoteController::class, 'show'])->name('note.show');
 Route::delete('/note/destroy/{note}', [NoteController::class, 'destroy'])->name('note.destroy');
+
+Route::resource('/post', PostController::class);

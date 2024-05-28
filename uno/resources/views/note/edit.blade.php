@@ -1,7 +1,9 @@
 @extends('layouts.landing')
 
 @section('content')
-    <form action="" method="post">
+    <a href="{{ route('note.index') }}">Volver</a>
+    <form action="{{ route('note.update', $note->id) }}" method="post">
+        @method('PUT')
         @csrf
         <label>Titulo:</label>
         <input type="text" name="title" value="{{ $note->title }}">

@@ -6,12 +6,13 @@ use App\Http\Controllers\ThingController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /* Route::get('/', function () {
     return view('welcome');
 }); */
 
-Route::view('/', 'index')->name('index');
+Route::get('/', [UserController::class, 'index'])->name('index');
 Route::get('/about', [ThingController::class, 'index'])->name('about');
 Route::get('/createAbout', [ThingController::class, 'create'])->name('createAbout');
 Route::get('/services', [ServiceController::class, 'showServices'])->name('services');

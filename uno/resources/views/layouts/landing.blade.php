@@ -17,4 +17,20 @@
     @yield('content')
 </body>
 
+<style>
+    .sectionTitle {
+        margin-bottom: 15px;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        background-color: aliceblue;
+    }
+
+    body {
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+    }
+</style>
+
 </html>

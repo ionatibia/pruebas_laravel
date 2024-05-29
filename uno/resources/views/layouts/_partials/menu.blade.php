@@ -2,7 +2,7 @@
     <nav class="menu">
         <ul>
             <li><a href="{{ route('index') }}">Home</a></li>
-            <li><a href="{{ route('about') }}">About</a></li>
+            <li><a href="{{ route('product.index') }}">Products</a></li>
             <li><a href="{{ route('services') }}">Services</a></li>
             <li><a href="{{ route('post.index') }}">Posts</a></li>
             <li><a href="{{ route('note.index') }}">Notas</a></li>
@@ -11,7 +11,7 @@
 </header>
 
 <style>
-    .menu {
+    header {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -19,24 +19,35 @@
         background-color: grey;
     }
 
-    .menu ul {
-        display: flex;
+    .menu {
         width: 100%;
+        display: flex;
         justify-content: center;
         align-items: center;
-        gap: 10rem;
-        padding-inline-start: 0px;
+        background-color: aliceblue;
+    }
+
+    .menu ul {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,
+                minmax(100px,
+                    1fr));
+        gap: 1rem;
+        padding: 0px 15px 0px 15px;
     }
 
     .menu li {
+        width: 100px;
+        margin: auto;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        gap: 1rem;
         box-shadow: 0 0 10px 10px rgba(0, 0, 0, .1);
         border-radius: 4px;
-        background: #555454;
+        background: #4459a7;
+        color: #fff;
         padding: 1rem;
-        width: 5%;
-        justify-content: center;
         align-items: center;
     }
 

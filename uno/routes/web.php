@@ -5,6 +5,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ThingController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 
 /* Route::get('/', function () {
     return view('welcome');
@@ -26,3 +27,5 @@ Route::get('/note/show/{note}', [NoteController::class, 'show'])->name('note.sho
 Route::delete('/note/destroy/{note}', [NoteController::class, 'destroy'])->name('note.destroy');
 
 Route::resource('/post', PostController::class);
+
+Route::resource('/product', ProductController::class);

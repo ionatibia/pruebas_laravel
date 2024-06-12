@@ -19,13 +19,10 @@ class SendMessage implements ShouldQueue
         //
     }
 
+    /* NO SE NECESITA... DESDE LOS CONTROLADORES SE PUEDEN ENVIAR */
+
     public function handle(): void
     {
-        GotMessage::dispatch([
-            'id' => $this->message->id,
-            'user_id' => $this->message->user_id,
-            'text' => $this->message->text,
-            'time' => $this->message->time,
-        ]);
+        GotMessage::dispatch($this->message);
     }
 }

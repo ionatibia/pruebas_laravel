@@ -1,0 +1,32 @@
+[29960] Log opened at 2024-06-12 12:41:43.853765
+[29960] [Step Debug] INFO: Connecting to configured address/port: 127.0.0.1:52379.
+[29960] [Step Debug] INFO: Connected to debugging client: 127.0.0.1:52379 (through xdebug.client_host/xdebug.client_port).
+[29960] [Step Debug] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///C:/Users/Nati/Documents/__ionatibia__/php/pruebas_laravel/laravel-chat/app/Events/GotMessage.php" language="PHP" xdebug:language_version="8.2.12" protocol_version="1.0" appid="29960" idekey="VSCODE"><engine version="3.3.2"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2024 by Derick Rethans]]></copyright></init>
+
+[29960] [Step Debug] <- feature_set -i 1 -n resolved_breakpoints -v 1
+[29960] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="1" feature="resolved_breakpoints" success="1"></response>
+
+[29960] [Step Debug] <- feature_set -i 2 -n notify_ok -v 1
+[29960] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="2" feature="notify_ok" success="1"></response>
+
+[29960] [Step Debug] <- feature_set -i 3 -n extended_properties -v 1
+[29960] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="3" feature="extended_properties" success="1"></response>
+
+[29960] [Step Debug] <- feature_set -i 4 -n breakpoint_include_return_value -v 1
+[29960] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="4" feature="breakpoint_include_return_value" success="1"></response>
+
+[29960] [Step Debug] <- feature_set -i 5 -n max_children -v 100
+[29960] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="5" feature="max_children" success="1"></response>
+
+[29960] [Step Debug] <- run -i 6
+[29960] [Step Debug] -> <notify xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" name="error"><xdebug:message filename="file:///C:/Users/Nati/Documents/__ionatibia__/php/pruebas_laravel/laravel-chat/app/Events/GotMessage.php" lineno="13" type="Fatal error"><![CDATA[Trait "Illuminate\Foundation\Events\Dispatchable" not found]]></xdebug:message></notify>
+
+[29960] [Step Debug] -> <notify xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" name="error"><xdebug:message filename="file:///C:/Users/Nati/Documents/__ionatibia__/php/pruebas_laravel/laravel-chat/app/Events/GotMessage.php" lineno="13" type="Fatal error"><![CDATA[Trait "Illuminate\Foundation\Events\Dispatchable" not found]]></xdebug:message></notify>
+
+[29960] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="run" transaction_id="6" status="stopping" reason="ok"></response>
+
+[29960] [Step Debug] <- stop -i 7
+[29960] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="stop" transaction_id="7" status="stopped" reason="ok"></response>
+
+[29960] Log closed at 2024-06-12 12:41:43.927221
+

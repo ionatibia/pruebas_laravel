@@ -16,7 +16,10 @@ import { createApp } from 'vue';
 const app = createApp({});
 
 import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
+import ChatComponent from './components/ChatComponent.vue';
+app
+    .component('example-component', ExampleComponent)
+    .component('chat-component',ChatComponent);
 
 /**
  * The following block of code may be used to automatically register your

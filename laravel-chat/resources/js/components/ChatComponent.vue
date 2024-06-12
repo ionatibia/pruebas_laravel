@@ -49,7 +49,7 @@ export default {
             try {
                 await axios.post("/message", {
                     text: self.text,
-                    to: 3,
+                    to: 2,
                     chat_id: 1,
                     service_id: 1,
                 });

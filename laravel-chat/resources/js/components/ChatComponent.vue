@@ -2,7 +2,17 @@
     <div>
         <h1>Chat</h1>
         <div v-if="messages">
-            {{ messages[0].messages[0] }}
+            <div v-for="(message, m) in messages" :key="m" class="chat">
+                <h6>{{ message.name }}</h6>
+                <div v-for="(item, i) in message.messages" :key="i" :class="item.from.id === user.id?'myMessage message':'othersMessage message'">
+                    <span
+                        >De: {{ item.from.name }} para :
+                        {{ item.to.name }}</span
+                    >
+                    <br />
+                    <span>{{ item.text }}</span>
+                </div>
+            </div>
         </div>
         <div><button @click="sendMessage()">Send</button></div>
     </div>
@@ -14,6 +24,10 @@ export default {
     name: "ChatComponent",
     props: {
         chat: {
+            type: Object,
+            default: null,
+        },
+        user: {
             type: Object,
             default: null,
         },
@@ -49,7 +63,6 @@ export default {
                     text: self.text,
                     to: 2,
                     chat_id: self.chat.id,
-                    service_id: 1,
                 });
             } catch (error) {
                 console.log(error);
@@ -59,4 +72,22 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.chat{
+    border:1px solid black;
+}
+.myMessage{
+    text-align: left;
+    color:green;
+}
+.othersMessage{
+    text-align: end;
+    color:red;
+}
+.message{
+    border:1px solid grey;
+    border-radius: 15px;
+    background-color: aquamarine;
+    padding:8px;
+}
+</style>

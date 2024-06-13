@@ -36,7 +36,8 @@ class HomeController extends Controller
             'id', 'name', 'email',
         ])->first();
         /* $services = Service::where('user_id', auth()->id())->get(); */
-        $services = Service::where('user_id', auth()->id())->with('chats')->get();
+        //$services = Service::where('user_id', auth()->id())->with('chats')->get();
+        $services = Service::all();
 
         return view('home', [
             'user' => $user,
@@ -48,14 +49,9 @@ class HomeController extends Controller
     {
         $chats = Chat::find($id)->get();
         foreach ($chats as $chat) {
-            $messages =  Message::where('chat_id', $chat->id)->join('users', 'from', '=', 'users.id')->join('users', 'to', '=', 'users.id')->get();
+            $messages =  Message::where('chat_id', $chat->id)->with('from', 'to')->get();
             $chat->messages = $messages;
         }
-
-        /* $messages = Message::find(1)->join('users', 'from', '=', 'users.id')->get(); */
-
-
-        /* $messages = Message::where('user_id', auth()->id())->orWhere('to', auth()->id())->get()->append('time'); */
 
         return response()->json($chats);
     }

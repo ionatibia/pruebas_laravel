@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Message extends Model
 {
@@ -16,6 +17,16 @@ class Message extends Model
     public function chat(): BelongsTo
     {
         return $this->belongsTo(Chat::class, 'chat_id');
+    }
+
+    public function from(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'from');
+    }
+
+    public function to(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'to');
     }
 
     public function getTimeAttribute(): string

@@ -13,7 +13,7 @@
                 {{ $service->name }}
                 <hr>
                 @foreach ($service->chats as $chat)
-                    <chat-component :chat="{{ $chat }}"></chat-component>
+                    <chat-component :chat="{{ $chat }}" :user="{{ $user }}"></chat-component>
                 @endforeach
             </div>
         @endforeach
@@ -24,7 +24,6 @@
     .service {
         padding: 15px;
         width: 200px;
-        height: 200px;
         border: 1px solid black;
         border-radius: 25px;
     }

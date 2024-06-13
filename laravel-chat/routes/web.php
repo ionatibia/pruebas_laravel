@@ -12,7 +12,7 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])
     ->name('home');
-Route::get('/messages', [HomeController::class, 'messages'])
+Route::get('/messages/{id}', [HomeController::class, 'messages'])
     ->name('messages');
 Route::post('/message', [HomeController::class, 'message'])
     ->name('message');

@@ -2,7 +2,7 @@
     <div>
         <h1>Chat</h1>
         <div v-if="messages">
-            {{ messages }}
+            {{ messages[0].messages[0] }}
         </div>
         <div><button @click="sendMessage()">Send</button></div>
     </div>
@@ -13,7 +13,7 @@ import axios from "axios";
 export default {
     name: "ChatComponent",
     props: {
-        service: {
+        chat: {
             type: Object,
             default: null,
         },
@@ -25,18 +25,16 @@ export default {
         };
     },
     async beforeMount() {
-        console.log(this.service);
-        Echo.private("servicios." + this.service.id).listen(
+        Echo.private("servicios." + this.chat.id).listen(
             "GotMessage",
             async (e) => {
-                console.log("dddddddddddddddddd");
                 console.log(e);
                 await getMessages();
             }
         );
         const self = this;
         async function getMessages() {
-            const response = await axios.get("/messages");
+            const response = await axios.get("/messages/" + self.chat.id);
             if (response.status === 200) {
                 self.messages = response.data;
             }
@@ -50,7 +48,7 @@ export default {
                 await axios.post("/message", {
                     text: self.text,
                     to: 2,
-                    chat_id: 1,
+                    chat_id: self.chat.id,
                     service_id: 1,
                 });
             } catch (error) {

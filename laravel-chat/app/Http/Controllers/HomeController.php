@@ -19,7 +19,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $tmp = Service::where('id', 1)->first();
+        $tmp = Service::find(1)->first();
         if (!$tmp) {
             Service::create([
                 'name' => 'Uno',
@@ -35,7 +35,8 @@ class HomeController extends Controller
         $user = User::where('id', auth()->id())->select([
             'id', 'name', 'email',
         ])->first();
-        $services = Service::where('user_id', auth()->id())->get();
+        /* $services = Service::where('user_id', auth()->id())->get(); */
+        $services = Service::where('user_id', auth()->id())->with('chats')->get();
 
         return view('home', [
             'user' => $user,
@@ -43,16 +44,16 @@ class HomeController extends Controller
         ]);
     }
 
-    public function messages(): JsonResponse
+    public function messages($id): JsonResponse
     {
-        $tmp = [];
-        $chats = Chat::where('service_id', 1)->messages()->get();
-
-        /*foreach ($chats as $chat) {
-            $messages = Message::where('chat_id', $chat->id)->get();
+        $chats = Chat::find($id)->get();
+        foreach ($chats as $chat) {
+            $messages =  Message::where('chat_id', $chat->id)->join('users', 'from', '=', 'users.id')->join('users', 'to', '=', 'users.id')->get();
             $chat->messages = $messages;
-            array_push($tmp, $chat);
-        }*/
+        }
+
+        /* $messages = Message::find(1)->join('users', 'from', '=', 'users.id')->get(); */
+
 
         /* $messages = Message::where('user_id', auth()->id())->orWhere('to', auth()->id())->get()->append('time'); */
 

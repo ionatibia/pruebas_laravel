@@ -9,8 +9,23 @@
         </div>
         <example-component :user="{{ $user }}"></example-component>
         @foreach ($services as $service)
-            <chat-component :service="{{ $service }}"></chat-component>
+            <div class="service">
+                {{ $service->name }}
+                <hr>
+                @foreach ($service->chats as $chat)
+                    <chat-component :chat="{{ $chat }}"></chat-component>
+                @endforeach
+            </div>
         @endforeach
 
     </div>
 @endsection
+<style>
+    .service {
+        padding: 15px;
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        border-radius: 25px;
+    }
+</style>

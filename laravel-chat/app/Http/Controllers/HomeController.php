@@ -49,7 +49,7 @@ class HomeController extends Controller
     {
         $chats = Chat::find($id)->get();
         foreach ($chats as $chat) {
-            $messages =  Message::where('chat_id', $chat->id)->with('from', 'to')->get();
+            $messages =  Message::where('chat_id', $chat->id)->with('from', 'to')->paginate(2);
             $chat->messages = $messages;
         }
 
